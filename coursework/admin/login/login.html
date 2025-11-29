@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    
+    <link rel="stylesheet" href="../../questions.css">
+</head>
+<body>
+
+    <header>
+        <h1>Student Forum</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <a href="../../index.php">Home</a>
+            <a href="../../questions.php">Questions List</a>
+            <a href="../../addquestions.php">Add Question</a>
+            <a href="../../contact.php">Contact Us</a>
+            <a href="../../addquestions.php">Inbox</a>
+            <a href="/COMP1841/coursework/admin/login/login.html">Admin Log in</a>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Admin Login</h2>
+        <p>Please enter the password to access the Admin page.</p>
+
+        <form method="post" action="validate.php">
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="password" size="20">
+            <input type="submit" value="Log in" id="login-btn">
+        </form>
+    </main>
+    <footer>&copy; 2025 Greenwich Student Forum</footer>
+</body>
+</html>

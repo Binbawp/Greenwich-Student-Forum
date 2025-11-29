@@ -25,5 +25,5 @@
     <label for="image">Upload image (Optional):</label>
     <input type="file" name="image" id="image">
     
-    <input type="submit" value="Add Question" id="public-add-btn">
+    <input type="submit" value="Add Question">
 </form>

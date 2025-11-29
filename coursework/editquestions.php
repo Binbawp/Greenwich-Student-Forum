@@ -1,28 +1,26 @@
 <?php 
 include 'includes/DatabaseConnection.php';
+include 'includes/DataBaseFunctions.php';
 try{
     if (isset($_POST['text'])) {
-
-        $sql = 'UPDATE question SET text = :text WHERE id = :id';
-        $stmt = $pdo->prepare($sql);
-        $stmt-> bindValue (':text', $_POST['text']);
-        $stmt-> bindValue (':id', $_POST['id']);
-        $stmt-> execute();
+        updateQuestion($pdo, $_POST['id'], $_POST['text'], $_POST['image'], $_POST['authorid'], $_POST['moduleid']);
         header ('location: questions.php');
     } else {
-        $sql = 'SELECT * FROM question WHERE id = :id';
-        $stmt = $pdo-> prepare ($sql);
-        $stmt-> bindValue(':id', $_GET['id']);
-        $stmt-> execute();
-        $questions = $stmt-> fetch();
+        $questions = getQuestion($pdo, $_GET['id']);
+        $author = getAuthor($pdo, $questions['authorid']);
+        $module = getModule($pdo, $questions['moduleid']);
+
+        $authors = allAuthors($pdo);
+        $modules = allModules($pdo);
+
         $title = 'Edit questions';
 
         ob_start();
-        include 'templates/editquestions.html.php';
+        include 'templates/admin_editquestions.html.php';
         $output = ob_get_clean(); 
     }
 } catch (PDOException $e){
     $title = 'error has occured';
     $output = 'Error editing questions: ' . $e->getMessage();
 }
-include 'templates/layout.html.php';
+include 'templates/admin_layout.html.php';
