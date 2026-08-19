@@ -1,0 +1,223 @@
+/* --- RESET & BASIC SETUP --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Adds better spacing logic */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6; /* Slightly nicer gray than f4f4f4 */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header, footer {
+    background-color: #005a9c;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1, footer p {
+    margin: 0;
+}
+
+#admin {
+    background-color: #000000;
+}
+
+nav {
+    background: #333;
+    color: #fff;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+nav a:hover {
+    background: #555;
+}
+
+/* --- LAYOUT CONTAINERS --- */
+main {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex-grow: 1;
+}
+
+/* Special Layout for Login Page */
+.login-box {
+    background-color: #ffffff;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* --- TYPOGRAPHY & ELEMENTS --- */
+blockquote {
+    border-left: 5px solid #005a9c;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    background: #f9f9f9;
+    position: relative;
+    padding-right: 90px;
+}
+
+.admin-page blockquote {
+    border-left: 5px solid #000000;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+.rules {
+    padding-left: 40px;
+    list-style-position: outside;
+    margin-bottom: 20px;
+}
+
+.rules li {
+    margin-bottom: 10px;
+}
+
+/* --- FORMS & INPUTS --- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Style Textareas AND Text/Password Inputs consistently */
+form textarea, 
+form input[type="text"], 
+form input[type="password"],
+form input[type="file"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px; /* Added spacing below inputs */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Delete Form Positioning */
+.delete-form {
+    display: inline-block; /* Fixed: was absolute which breaks layouts */
+    float: right;         /* Pushes delete buttons to the right in tables */
+}
+
+/* --- NOTIFICATIONS --- */
+.error-box {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* --- TABLES --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+th:first-child, td:first-child {
+    width: 60%;
+}
+
+/* --- BUTTONS (GROUPED) --- */
+
+/* 1. Black Buttons (Admin Actions) */
+form input[value="Delete"],
+form input[value="Save Module"],
+form input[value="Save User"],
+form input[value="Add Question"],
+form input[value="Reply"],
+form input[value="Save"] {
+    background: #000000;
+    color: #fff;
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 1em;
+    align-self: flex-start;
+}
+
+form input[value="Delete"]:hover,
+form input[value="Save Module"]:hover,
+form input[value="Save User"]:hover,
+form input[value="Add Question"]:hover,
+form input[value="Reply"]:hover,
+form input[value="Save"]:hover {
+    background: #333; /* Slightly lighter black for hover */
+}
+
+/* 2. Blue Buttons (Public/Navigation Actions) */
+form input[value="Send"],
+form input[value="View Messages"],
+#public-add-btn,
+#login-btn,
+.btn-login { /* Added generic class for login button */
+    background: #005a9c;
+    color: #fff;
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 1em;
+    align-self: flex-start;
+    text-decoration: none; /* In case it's an <a> tag */
+    display: inline-block;
+}
+
+form input[value="Send"]:hover,
+form input[value="View Messages"]:hover,
+#public-add-btn:hover,
+#login-btn:hover,
+.btn-login:hover {
+    background: #013a63;
+}
